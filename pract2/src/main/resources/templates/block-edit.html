@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Редактирование статьи</title>
+</head>
+<body>
+
+<div align="center" th:each="el : ${post}">
+    <h1>Редактирование статьи</h1>
+    <form method="post" th:object="${post}">
+        <input th:field="*{title}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="text" th:value="${post.title}" name="title" placeholder="Введите название статьи">
+        <input th:field="*{anons}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="text" th:value="${post.anons}" name="anons" placeholder="Введите анонс статьи">
+        <textarea th:field="*{full_text}" style="width: 300px; height: 100px; margin: 2px; display: list-item" th:text="${post.getFull_text()}" name="full_text" placeholder="Введите текст статьи"></textarea>
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+</body>
+</html>
+<style>
+    html *
+    {
+        font-family: Arial !important;
+    }
+    body {
+        height: 200px;
+        background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+    }
+    h1{
+        font-family: Arial;
+    }
+</style>

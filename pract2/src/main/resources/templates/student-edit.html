@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Редактирование студента</title>
+</head>
+<body>
+
+<div align="center" th:each="el : ${student}">
+    <h1>Редактирование студента</h1>
+    <form method="post" th:object="${student}">
+        <input th:field="*{surname}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="text" th:value="${student.getSurname()}" name="surname" placeholder="Напишите фамилию">
+        <input th:field="*{name}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="text" th:value="${student.getName()}" name="name" placeholder="Напишите имя">
+        <input th:field="*{scholarship}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="text" th:value="${student.getScholarship()}" name="Scholarship" placeholder="Напишите стипендию">
+        <input th:field="*{groups}" style="width: 250px; height: 40px; margin: 2px; display: list-item" type="number" th:value="${student.getGroups()}" name="groups" placeholder="Напишите группу">
+        <input style="width: 250px; height: 40px; margin: 2px; display: list-item" type="date" th:value="${student.getBirthdayString()}" name="Birthday">
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+</body>
+</html>
+<style>
+    html *
+    {
+        font-family: Arial !important;
+    }
+    body {
+        height: 200px;
+        background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+    }
+    h1{
+        font-family: Arial;
+    }
+</style>
